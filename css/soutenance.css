@@ -8,8 +8,8 @@ body {
 
 /** STEP STYLES **/
 .step {
-  width: 900px;
-  min-height: 500px;
+  width: 970px;
+  min-height: 700px;
   font-size: 1.7em;
   background-color: white;
 
@@ -44,45 +44,49 @@ body {
 }
 
 /* hint on the first slide */
-.hint {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 100px;
+.hint{position:absolute;width:100%;bottom:20px;right:0;font-size:130%;background-color:#aab6c2;padding:20px 10px;text-align:center;color:#333;display:none;z-index:99;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:block;}
 
-  background: #333;
-  color: #fff;
+.step img{
   text-align: center;
-
-  padding: 10px;
-  z-index: 100;
-
-  opacity: 0;
-
-  -webkit-transform: translateY(400px);
-  -moz-transform:    translateY(400px);
-  -ms-transform:     translateY(400px);
-  -o-transform:      translateY(400px);
-  transform:         translateY(400px);
-
-  -webkit-transition: opacity 1s, -webkit-transform 0.5s 1s;
-  -moz-transition:    opacity 1s,    -moz-transform 0.5s 1s;
-  -ms-transition:     opacity 1s,     -ms-transform 0.5s 1s;
-  -o-transition:      opacity 1s,      -o-transform 0.5s 1s;
-  transition:         opacity 1s,         transform 0.5s 1s;
+  margin: auto;
+  display: block;
 }
-.step-home + .hint {
-	opacity: 1;
 
-	-webkit-transition: opacity 1s 5s, -webkit-transform 0.5s;
-	-moz-transition:    opacity 1s 5s,    -moz-transform 0.5s;
-	-ms-transition:     opacity 1s 5s,     -ms-transform 0.5s;
-	-o-transition:      opacity 1s 5s,      -o-transform 0.5s;
-	transition:         opacity 1s 5s,         transform 0.5s;
 
-	-webkit-transform: translateY(0px);
-	-moz-transform:    translateY(0px);
-	-ms-transform:     translateY(0px);
-	-o-transform:      translateY(0px);
-	transform:         translateY(0px);
+
+
+/* PROGRESS BAR */
+.progress{
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  left: 0px;
+  bottom: 20px;
+  z-index: 2000;
+  user-select: none;
 }
+.progress span{
+  display: inline-block;
+  position: relative;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #777;
+  margin: 3px;
+  cursor: pointer;
+  box-shadow: 
+  1px 1px 1px rgba(0,0,0,0.1) inset, 
+  1px 1px 1px rgba(255,255,255,0.3);
+}
+.progress span.progress-current:after{
+  content: '';
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  border-radius: 50%;
+  background: linear-gradient(top, #ffffff 0%,#f6f6f6 47%,#ededed 100%);
+}
+
+

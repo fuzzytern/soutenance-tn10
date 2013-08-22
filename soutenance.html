@@ -2,46 +2,183 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>jmpress.js | zoomable example</title>
+    <title>Loomio - Un outil collaboratif pour la prise de décisisons</title>
 
     <meta name="author" content="Nicolas Wormser" />
     <meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1.0, user-scalable=yes" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <link href="css/soutenance.css" rel="stylesheet" type="text/css" />
+    <link href="css/soutenance.css" rel="stylesheet" />
+    <link href="plugins/progress/css/impress-progress.css" rel="stylesheet" />
+
 
     <script type="text/javascript" src="lib/jquery.min.js"></script>
+    <script src="plugins/progress/js/impress-progress.js"></script>
     <script type="text/javascript" src="lib/jmpress.js"></script>
   </head>
   <body>
 
-  <div id="zoomable">
-    <div id="home" class="step">
-      Un
-    </div>
-    <div class="step" data-x="1100">
-      deux
-    </div>
-    <div class="step" data-x="2200">
-      trois
-    </div>
-  </div>
+    <!-- NAVIGATION -->
+    <ul class="nav">
+      <li><a href="#home" class="go">HOME</a>&middot;
+      <li><a href="#/step-2">ABOUT</a>&middot;
+      <li><a href="#/step-3">FEATURES</a>&middot;
+      <li><a href="#/examples">EXAMPLES</a>&nbsp;-&nbsp;
+      <li><a href="#prev" class="go">PREV</a>&middot;
+      <li><a href="#next" class="go">NEXT</a>
+    </ul>
 
-  <div class="hint">
-    <p>Use arrow keys to navigate</p>
-  </div>
+    <article id="container">
+      <section id="home" data-x="1100" data-y="-900">
+        <h1>Loomio</h1>
+        <h2>Un outil collaboratif pour la prise de décisisons</h2>
+        <h2>Stage TN10</h2>
+        <h3>Étudiant : Nicolas Wormser</h3>
+        <h3>Tuteur : Jon Lemmon</h3>
+        <h3>Responsable pédagogique : Alain Ploix</h3>
+      </section>
 
-  <script type="text/javascript">
-    $(function() {
-      $('#zoomable').jmpress({
-        viewPort: {
-          height: 800,
-          width: 1024,
-          maxScale: 1,
-          zoomable: 10
-        }
-      });
+      <section class="step">
+        <h3>Loomio en quelques chiffres</h3>
+        <p>1 coopérative sociale (Wellington)</p>
+        <p>13 membres</p>
+        <p>~20 contributeurs bénévoles</p>
+        <p>6000+ utilisateurs inscrits</p>
+        <p>1750+ groupes de discussion</p>
+      </section>
+
+      <section class="step" data-x="1100">
+        <img src="img/world-visits.png" width="800" />
+        <!-- Entreprises, collectivités locales, associations, organisation du sommet international de la communication non-violente en inde, coopérative alimentation biologique à San Fransisco-->
+      </section>
+
+      <section class="step" data-x="2200">
+        <h3>Mission au sein de l'équipe</h3>
+        <!-- Conception et développement d'une application de ...-->
+        <p>*MetricsEngine*: Collecte de données applicatives</p>
+        <!-- BUT: Mesure d'assiduité -->
+        <!-- BUT: Cause à effet d'une action à une autre (actions liées) -->
+
+        <p>Suivi et amélioration des performances de l'application principale</p> <!-- Sous Ruby on Rails-->
+        <!-- BUT: Offrir la meilleur performance possible -->
+        <!-- BUT: Offrir une performance stable afin d'éviter les goulets d'étranglement / interruptions de service -->
+      </section>
+
+      <section class="step" data-x="2200" data-y="900">
+        <img src="img/metrics-architecture.png" width="800" />
+        <p>Architecture de la solution de capture de données</p>
+        <!-- Lazy loading du script coté client depuis AWS (ne retarde ni l'affichage ni l'éxécution des autres scripts) -->
+        <!-- Envoi au format JSONP, HTTP GET -->
+        <!-- Enregistrement avec Redis via FnordMetric -->
+        <!-- Accès via FnordMetric Client (Temps Réels via Websockets)-->
+      </section>
+
+      <section class="step" data-x="1100" data-y="900">
+        <img src="img/fnordmetric.png" width="800" />
+        <p>Exemple de visualisation</p>
+        <!-- Affichage de la répartition des votes en fonction du temps (pour dégager des tendances) -->
+        <!-- Affichage des discussions les plus recherchées -->
+      </section>
+
+      <section class="step" data-x="2200" data-y="1800" data-rotate="180">
+        <h3>Tests de performance</h3>
+        <p>Un envirronement dédié</p>
+        <p>Lancé périodiquement afin de pouvoir comparer les résultat en fonction du temps</p>
+        <!-- Rajout en fin du fichier CSV -->
+        <p>Visualisation de l'évolution des tests via Google Spreadsheets</p>
+      </section>
+
+      <section class="step" data-x="1100" data-y="1800" data-rotate="180">
+        <pre>
+          $ cat HomepageTest\#test_discussion_show_process_time.csv
+          measurement,created_at,app,rails,ruby,platform
+          0.1586437398000001,2013-07-22T21:57:57Z,perf/benchmark-and-cache.5596f12,3.2.13,ruby-2.0.0.195,x86_64-linux
+          0.1545968239999222,2013-07-23T07:43:03Z,perf/benchmark-and-cache.5596f12,3.2.13,ruby-2.0.0.195,x86_64-linux
+          0.1514014521600001,2013-07-23T08:58:32Z,perf/benchmark-and-cache.5596f12,3.2.13,ruby-2.0.0.195,x86_64-linux
+          0.2012038972394001,2013-07-29T07:21:80Z,perf/benchmark-and-cache.5596f12,3.2.13,ruby-2.0.0.195,x86_64-linux
+          0.1882918889884001,2013-07-29T08:31:10Z,perf/benchmark-and-cache.5596f12,3.2.13,ruby-2.0.0.195,x86_64-linux
+          0.1612038972394001,2013-08-01T08:12:48Z,perf/benchmark-and-cache.5596f12,3.2.13,ruby-2.0.0.195,x86_64-linux
+          0.1688199067574929,2013-08-02T08:33:30Z,perf/benchmark-and-cache.5596f12,3.2.13,ruby-2.0.0.195,x86_64-linux
+          0.1919832749800000,2013-08-02T09:14:12Z,perf/benchmark-and-cache.5596f12,3.2.13,ruby-2.0.0.195,x86_64-linux
+          0.1612038972394001,2013-08-07T02:41:40Z,perf/benchmark-and-cache.5596f12,3.2.13,ruby-2.0.0.195,x86_64-linux
+          0.1399998818927222,2013-08-11T09:22:11Z,perf/benchmark-and-cache.5596f12,3.2.13,ruby-2.0.0.195,x86_64-linux
+          0.1296886899990001,2013-08-11T10:13:30z,perf/benchmark-and-cache.5596f12,3.2.13,ruby-2.0.0.195,x86_64-linux
+          0.1797789199991101,2013-08-12T18:21:16Z,perf/benchmark-and-cache.5596f12,3.2.13,ruby-2.0.0.195,x86_64-linux
+          0.1789992002222111,2013-08-15T20:17:42Z,perf/benchmark-and-cache.5596f12,3.2.13,ruby-2.0.0.195,x86_64-linux
+          0.1899981000018888,2013-08-16T08:28:15Z,perf/benchmark-and-cache.5596f12,3.2.13,ruby-2.0.0.195,x86_64-linux
+        </pre>
+        <img src="img/google-graph.png" width="800" />
+        <p>Visualation correspondant au test <em>discussion show process time</em></p>
+        <!--  -->
+      </section>
+
+      <section class="step" data-y="1800" data-rotate="180">
+        <img src="img/fnordmetric.png" width="800" />
+        <p>Exemple de visualisation</p>
+        <!-- Affichage de la répartition des votes en fonction du temps (pour dégager des tendances) -->
+        <!-- Affichage des discussions les plus recherchées -->
+      </section>
+    </div>
+
+    <div class="hint">
+      <p>Use arrow keys to navigate</p>
+    </div>
+
+    <nav class="progress"></nav>
+
+    <script type="text/javascript">
+
+
+
+  $.jmpress('register', 'soutenance', function() {
+    var jmpress = this;
+
+    // on each step hide/show nav
+    var setActive = function(step) {
+      if ($(step).attr('id') === 'home') {
+        $('.nav').fadeOut();
+        $('.hint').stop(true, true).delay(3000).fadeIn();
+      } else {
+        $('.nav').fadeIn();
+        $('.hint').stop(true, true).fadeOut();
+      }
+    };
+
+    // our main configuration
+    var config = {
+      stepSelector: 'section',
+      viewPort: {
+        width: 1300,
+        maxScale: 1
+      },
+      presentationMode: {
+        notesUrl: 'index.notes.html'
+      },
+      setActive: setActive
+    };
+
+    // START JMPRESS and enable esc key de-init toggle
+    $(this).jmpress('toggle', 27, config, true);
+
+    // handle internal nav links
+    $('.go').click(function(e) {
+      e.preventDefault();
+      $(jmpress).jmpress($(this).attr('href').slice(1));
     });
-  </script>
+  });
+
+  $('#container').jmpress('soutenance');
+
+  //    $(function() {
+  //      $('#soutenance').jmpress({
+  //        viewPort: {
+  //          height: 800,
+  //          width: 1024,
+  //          maxScale: 1,
+  //          zoomable: 10
+  //        }
+  //      });
+  //    });
+    </script>
   </body>
 </html>
