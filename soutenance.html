@@ -18,33 +18,28 @@
   </head>
   <body>
 
-    <!-- NAVIGATION -->
-    <ul class="nav">
-      <li><a href="#home" class="go">HOME</a>&middot;
-      <li><a href="#/step-2">ABOUT</a>&middot;
-      <li><a href="#/step-3">FEATURES</a>&middot;
-      <li><a href="#/examples">EXAMPLES</a>&nbsp;-&nbsp;
-      <li><a href="#prev" class="go">PREV</a>&middot;
-      <li><a href="#next" class="go">NEXT</a>
-    </ul>
-
     <article id="container">
       <section id="home" data-x="1100" data-y="-900">
-        <h1>Loomio</h1>
-        <h2>Un outil collaboratif pour la prise de décisisons</h2>
-        <h2>Stage TN10</h2>
-        <h3>Étudiant : Nicolas Wormser</h3>
-        <h3>Tuteur : Jon Lemmon</h3>
-        <h3>Responsable pédagogique : Alain Ploix</h3>
+        <img src="img/logo.png" width="750" />
+        <h1>Un outil collaboratif pour la prise de décisions</h1>
+        <h2>Stage TN10 − Filière MPL</h2>
+        <div class="people">
+          <h3><em>Étudiant</em> − Nicolas Wormser</h3>
+          <h3><em>Tuteur</em> − Jon Lemmon</h3>
+          <h3><em>Responsable pédagogique</em> − Alain Ploix</h3>
+        </div>
       </section>
 
+      <!-- Parler brievement de l'outil (prise de décisions en groupe à la recherche du consensus) -->
       <section class="step">
         <h3>Loomio en quelques chiffres</h3>
-        <p>1 coopérative sociale (Wellington)</p>
-        <p>13 membres</p>
-        <p>~20 contributeurs bénévoles</p>
-        <p>6000+ utilisateurs inscrits</p>
-        <p>1750+ groupes de discussion</p>
+        <p><span>1</span> coopérative sociale</p>
+        <p class="even"><span>20</span> pays</p>
+        <p><span>7</span> langues</p>
+        <p class="even"><span>12</span> membres</p>
+        <p> <span>20+</span> contributeurs bénévoles</p>
+        <p class="even"><span>6000+</span> utilisateurs inscrits</p>
+        <p> <span>1750+</span> groupes de discussion</p>
       </section>
 
       <section class="step" data-x="1100">
@@ -55,76 +50,103 @@
       <section class="step" data-x="2200">
         <h3>Mission au sein de l'équipe</h3>
         <!-- Conception et développement d'une application de ...-->
-        <p>*MetricsEngine*: Collecte de données applicatives</p>
-        <!-- BUT: Mesure d'assiduité -->
-        <!-- BUT: Cause à effet d'une action à une autre (actions liées) -->
-
-        <p>Suivi et amélioration des performances de l'application principale</p> <!-- Sous Ruby on Rails-->
+        <ul>
+          <li><em>MetricsEngine</em> : Collecte de données applicatives</li>
+            <ul>
+              <li>Étude comportementale (assiduité, chaîne d'actions)</li>
+              <li>Amélioration de l'ergonomie</li>
+              <!-- BUT: Cause à effet d'une action à une autre (actions liées) -->
+            </ul>
+          <li>Suivi et amélioration des performances de l'application principale</li> <!-- Sous Ruby on Rails-->
+            <ul>
+              <li>Performance</li>
+              <li>Stabilité</li>
+            </ul>
+        </ul>
         <!-- BUT: Offrir la meilleur performance possible -->
         <!-- BUT: Offrir une performance stable afin d'éviter les goulets d'étranglement / interruptions de service -->
       </section>
 
-      <section class="step" data-x="2200" data-y="900">
-        <img src="img/metrics-architecture.png" width="800" />
-        <p>Architecture de la solution de capture de données</p>
-        <!-- Lazy loading du script coté client depuis AWS (ne retarde ni l'affichage ni l'éxécution des autres scripts) -->
-        <!-- Envoi au format JSONP, HTTP GET -->
-        <!-- Enregistrement avec Redis via FnordMetric -->
+      <section class="step metrics" data-x="2200" data-y="900">
+        <h3>Architecture de la solution de collecte de données</h3>
+        <img src="img/metrics-architecture.png" width="760" />
+        <!-- Lazy loading d'un plugin jQuery coté client depuis AWS (ne retarde ni l'affichage ni l'éxécution des autres scripts) -->
+        <!-- Envoi au format JSONP, HTTP GET (non RESTful) vers un middleware (Ruby)-->
+        <!-- Stockage avec Redis via FnordMetric -->
         <!-- Accès via FnordMetric Client (Temps Réels via Websockets)-->
       </section>
 
-      <section class="step" data-x="1100" data-y="900">
+      <section class="step metrics" data-x="1100" data-y="900">
+        <h3>Exemple de visualisation</h3>
         <img src="img/fnordmetric.png" width="800" />
-        <p>Exemple de visualisation</p>
         <!-- Affichage de la répartition des votes en fonction du temps (pour dégager des tendances) -->
         <!-- Affichage des discussions les plus recherchées -->
       </section>
 
-      <section class="step" data-x="2200" data-y="1800" data-rotate="180">
+      <section class="step perf" data-x="2200" data-y="1800" data-rotate="180">
         <h3>Tests de performance</h3>
-        <p>Un envirronement dédié</p>
-        <p>Lancé périodiquement afin de pouvoir comparer les résultat en fonction du temps</p>
+        <p>Un environnement dédié (RakeTask)</p>
+        <p>Lancé périodiquement afin de pouvoir comparer les résultats en fonction du temps</p>
         <!-- Rajout en fin du fichier CSV -->
         <p>Visualisation de l'évolution des tests via Google Spreadsheets</p>
       </section>
 
-      <section class="step" data-x="1100" data-y="1800" data-rotate="180">
+      <section class="step perf" data-x="1100" data-y="1800" data-rotate="180">
         <pre>
-          $ cat HomepageTest\#test_discussion_show_process_time.csv
+          $ cat HomepageTest#test_discussion_show_<span>process_time</span>.csv
           measurement,created_at,app,rails,ruby,platform
-          0.1586437398000001,2013-07-22T21:57:57Z,perf/benchmark-and-cache.5596f12,3.2.13,ruby-2.0.0.195,x86_64-linux
-          0.1545968239999222,2013-07-23T07:43:03Z,perf/benchmark-and-cache.5596f12,3.2.13,ruby-2.0.0.195,x86_64-linux
-          0.1514014521600001,2013-07-23T08:58:32Z,perf/benchmark-and-cache.5596f12,3.2.13,ruby-2.0.0.195,x86_64-linux
-          0.2012038972394001,2013-07-29T07:21:80Z,perf/benchmark-and-cache.5596f12,3.2.13,ruby-2.0.0.195,x86_64-linux
-          0.1882918889884001,2013-07-29T08:31:10Z,perf/benchmark-and-cache.5596f12,3.2.13,ruby-2.0.0.195,x86_64-linux
-          0.1612038972394001,2013-08-01T08:12:48Z,perf/benchmark-and-cache.5596f12,3.2.13,ruby-2.0.0.195,x86_64-linux
-          0.1688199067574929,2013-08-02T08:33:30Z,perf/benchmark-and-cache.5596f12,3.2.13,ruby-2.0.0.195,x86_64-linux
-          0.1919832749800000,2013-08-02T09:14:12Z,perf/benchmark-and-cache.5596f12,3.2.13,ruby-2.0.0.195,x86_64-linux
-          0.1612038972394001,2013-08-07T02:41:40Z,perf/benchmark-and-cache.5596f12,3.2.13,ruby-2.0.0.195,x86_64-linux
-          0.1399998818927222,2013-08-11T09:22:11Z,perf/benchmark-and-cache.5596f12,3.2.13,ruby-2.0.0.195,x86_64-linux
-          0.1296886899990001,2013-08-11T10:13:30z,perf/benchmark-and-cache.5596f12,3.2.13,ruby-2.0.0.195,x86_64-linux
-          0.1797789199991101,2013-08-12T18:21:16Z,perf/benchmark-and-cache.5596f12,3.2.13,ruby-2.0.0.195,x86_64-linux
-          0.1789992002222111,2013-08-15T20:17:42Z,perf/benchmark-and-cache.5596f12,3.2.13,ruby-2.0.0.195,x86_64-linux
-          0.1899981000018888,2013-08-16T08:28:15Z,perf/benchmark-and-cache.5596f12,3.2.13,ruby-2.0.0.195,x86_64-linux
+          <span>0.1586437398000001</span>,<span>2013-07-22</span>T<span>21:57:57</span>Z, ...
+          <span>0.1545968239999222</span>,<span>2013-07-23</span>T<span>07:43:03</span>Z, ...
+          <span>0.1514014521600001</span>,<span>2013-07-23</span>T<span>08:58:32</span>Z, ...
+          <span>0.2012038972394001</span>,<span>2013-07-29</span>T<span>07:21:80</span>Z, ...
+          <span>0.1882918889884001</span>,<span>2013-07-29</span>T<span>08:31:10</span>Z, ...
+          <span>0.1612038972394001</span>,<span>2013-08-01</span>T<span>08:12:48</span>Z, ...
+          <span>0.1688199067574929</span>,<span>2013-08-02</span>T<span>08:33:30</span>Z, ...
+          <span>0.1919832749800000</span>,<span>2013-08-02</span>T<span>09:14:12</span>Z, ...
+          <span>0.1612038972394001</span>,<span>2013-08-07</span>T<span>02:41:40</span>Z, ...
+          <span>0.1399998818927222</span>,<span>2013-08-11</span>T<span>09:22:11</span>Z, ...
+          <span>0.1296886899990001</span>,<span>2013-08-11</span>T<span>10:13:30</span>z, ...
+          <span>0.1797789199991101</span>,<span>2013-08-12</span>T<span>18:21:16</span>Z, ...
+          <span>0.1789992002222111</span>,<span>2013-08-15</span>T<span>20:17:42</span>Z, ...
+          <span>0.1899981000018888</span>,<span>2013-08-16</span>T<span>08:28:15</span>Z, ...
         </pre>
+      </section>
+
+      <section class="step perf" data-y="1800" data-rotate="180">
+        <h3>Visualisation du fichier CSV</em></h3>
         <img src="img/google-graph.png" width="800" />
-        <p>Visualation correspondant au test <em>discussion show process time</em></p>
         <!--  -->
       </section>
 
-      <section class="step" data-y="1800" data-rotate="180">
-        <img src="img/fnordmetric.png" width="800" />
-        <p>Exemple de visualisation</p>
-        <!-- Affichage de la répartition des votes en fonction du temps (pour dégager des tendances) -->
-        <!-- Affichage des discussions les plus recherchées -->
+      <section class="step" data-y="2700" data-rotate="180">
+        <h3>Dans les prochains mois</h3>
+        <ul>
+          <li>[Metrics] Utiliser les données de production</li>
+          <li>[Metrics] Remplacer Fnordmetrics par une solution plus spécifique (Dashing + Accès direct Redis)</li>
+          <li>[Metrics] Data Mining sur les données récoltées</li>
+          <!-- Machine Learning pour la situation financière de l'entreprise -->
+          <li>[Perf] Automatiser le lancement des tests de performance (Pre-commit hook)</li>
+        </ul>
       </section>
     </div>
 
-    <div class="hint">
-      <p>Use arrow keys to navigate</p>
-    </div>
 
-    <nav class="progress"></nav>
+    <!--div class="hint">
+      <p>Use arrow keys to navigate</p>
+    </div-->
+    <!-- NAVIGATION -->
+    <!--ul class="nav">
+      <li><a href="#home"></a></li>
+      <li><a href="#/step-2"></a></li>
+      <li><a href="#/step-3"></a></li>
+      <li><a href="#/step-4"></a></li>
+      <li><a href="#/step-5"></a></li>
+      <li><a href="#/step-6"></a></li>
+      <li><a href="#/step-7"></a></li>
+      <li><a href="#/step-8"></a></li>
+      <li><a href="#/step-9"></a></li>
+    </ul-->
+
 
     <script type="text/javascript">
 
@@ -137,10 +159,12 @@
     var setActive = function(step) {
       if ($(step).attr('id') === 'home') {
         $('.nav').fadeOut();
-        $('.hint').stop(true, true).delay(3000).fadeIn();
+        //$('.hint').stop(true, true).delay(3000).fadeIn();
+        $('.nav .completed').removeClass('completed');
       } else {
         $('.nav').fadeIn();
-        $('.hint').stop(true, true).fadeOut();
+        //$('.hint').stop(true, true).fadeOut();
+        $('.nav').not('.completed').first().addClass('completed');
       }
     };
 
@@ -148,7 +172,7 @@
     var config = {
       stepSelector: 'section',
       viewPort: {
-        width: 1300,
+        width: 950,
         maxScale: 1
       },
       presentationMode: {

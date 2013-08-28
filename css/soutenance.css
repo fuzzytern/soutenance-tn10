@@ -1,9 +1,24 @@
 /** GENERAL **/
+@font-face {
+  font-family: 'Inconsolata';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Inconsolata'), url(inconsolata.woff) format('woff');
+}
 body {
   font-family: Verdana, sans-serif;
   min-height: 740px;
-  background-color: #ddd;
+  background-color: white;
   -webkit-font-smoothing: antialiased;
+  color: rgba(0,0,0,0.7);
+}
+h1, h2, h3 {
+  font-family: 'Inconsolata';
+}
+h1 {
+  font-family: 'Inconsolata';
+  font-size: 2.3em;
+  margin: 5px 0;
 }
 
 /** STEP STYLES **/
@@ -11,12 +26,12 @@ body {
   width: 970px;
   min-height: 700px;
   font-size: 1.7em;
-  background-color: white;
 
   display: block;
   padding: 40px 60px;
   border-radius: 10px;
 
+  background-color: rgba(0,0,0,0.1);
   box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
   border: 1px solid rgba(0, 0, 0, .3);
 
@@ -38,24 +53,78 @@ body {
   transition:         opacity 1s;
 }
 
+#step-2 p {
+  text-align:center;
+  margin: 35px 0 35px -190px;
+}
+#step-2 p.even {
+  margin-left: 190px;
+}
+p span, pre span{
+  color: rgb(224,162,27);
+}
+li {
+  margin: 10px 0px;
+}
+
+section > ul > li {
+  margin-top: 40px;
+}
+
+pre {
+  margin-left: -180px;
+  font-size: 1.2em;
+}
+
+.people {
+  color: #08C;
+}
+.people h3 {
+  text-align: right;
+  margin: 0;
+}
+
+.metrics {
+  background-color: rgba(0,136,204,0.2);
+}
+.perf{
+  background-color: rgba(224,162,27,0.2);
+}
+
+
 /* fade out inactive slides */
 .step:not(.active) {
   opacity: 0.3;
 }
 
 /* hint on the first slide */
-.hint{position:absolute;width:100%;bottom:20px;right:0;font-size:130%;background-color:#aab6c2;padding:20px 10px;text-align:center;color:#333;display:none;z-index:99;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:block;}
-
+//.hint{position:absolute;width:100%;bottom:20px;right:0;font-size:130%;background-color:#aab6c2;padding:20px 10px;text-align:center;color:#333;display:none;z-index:99;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:block;}
+.step h3 {
+  color: #08C;
+}
 .step img{
   text-align: center;
   margin: auto;
   display: block;
 }
 
-
-
-
 /* PROGRESS BAR */
+.nav {
+  list-style-type: none;
+  position: absolute;
+  left: 0px;
+  text-align: center;
+  width: 900px;
+}
+.nav li {
+  display: inline;
+}
+.nav a {
+  display: block;
+  background-color: blue;
+  width: 40px;
+  height: 5px;
+}
 .progress{
   width: 100%;
   position: absolute;
@@ -88,5 +157,3 @@ body {
   border-radius: 50%;
   background: linear-gradient(top, #ffffff 0%,#f6f6f6 47%,#ededed 100%);
 }
-
-
