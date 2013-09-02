@@ -43,6 +43,7 @@
       </section>
 
       <section class="step" data-x="1100">
+        <h3>Cartographie des utilisateurs</h3>
         <img src="img/world-visits.png" width="800" />
         <!-- Entreprises, collectivités locales, associations, organisation du sommet international de la communication non-violente en inde, coopérative alimentation biologique à San Fransisco-->
       </section>
@@ -79,16 +80,22 @@
       <section class="step metrics" data-x="1100" data-y="900">
         <h3>Exemple de visualisation</h3>
         <img src="img/fnordmetric.png" width="800" />
-        <!-- Affichage de la répartition des votes en fonction du temps (pour dégager des tendances) -->
+        <!-- Affichage de la répartition des votes en fonction du temps (pour dégager des tendances, évolution vers le consensus etc...) -->
         <!-- Affichage des discussions les plus recherchées -->
+        <!-- utilisation de données de tests pour cette photo -->
       </section>
 
       <section class="step perf" data-x="2200" data-y="1800" data-rotate="180">
         <h3>Tests de performance</h3>
-        <p>Un environnement dédié (RakeTask)</p>
-        <p>Lancé périodiquement afin de pouvoir comparer les résultats en fonction du temps</p>
+        <ul>
+          <li>Un environnement dédié</li><!-- Conditions de productions -->
+          <ul>
+            <li>Mise en cache</li><!-- Pour mesurer son efficacité (1mn sur la mise en cache) -->
+            <li>Données de semi-production (RakeTask)</li><!-- Pour avoir des temps fiables notamment pour les optimisations de requêtes SQL -->
+          </ul>
+          <li>Lancé périodiquement afin de pouvoir comparer les résultats en fonction du temps</li>
         <!-- Rajout en fin du fichier CSV -->
-        <p>Visualisation de l'évolution des tests via Google Spreadsheets</p>
+        <ul>
       </section>
 
       <section class="step perf" data-x="1100" data-y="1800" data-rotate="180">
@@ -126,6 +133,7 @@
           <li>[Metrics] Data Mining sur les données récoltées</li>
           <!-- Machine Learning pour la situation financière de l'entreprise -->
           <li>[Perf] Automatiser le lancement des tests de performance (Pre-commit hook)</li>
+          <li>[Perf] Exécuter les tests de performance sur le serveur d'intégration continue</li>
         </ul>
       </section>
     </div>

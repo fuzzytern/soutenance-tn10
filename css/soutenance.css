@@ -107,6 +107,9 @@ pre {
   margin: auto;
   display: block;
 }
+#step-3 img {
+  border: 1px solid gray;
+}
 
 /* PROGRESS BAR */
 .nav {
